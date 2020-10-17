@@ -1,0 +1,16 @@
+@tailwind base;
+
+body {
+  @apply m-0 text-indigo-900 bg-white;
+}
+
+a {
+  @apply text-indigo-600;
+  &:hover {
+    @apply text-indigo-700;
+  }
+}
+
+p + p {
+  @apply mt-3;
+}
