@@ -1,0 +1,15 @@
+.footer {
+  @apply border-t border-gray-200 py-4;
+}
+
+.links {
+  @apply flex items-center justify-center w-full;
+}
+
+.link {
+  @apply text-indigo-900 mx-2;
+
+  &:hover {
+    @apply text-indigo-600;
+  }
+}
