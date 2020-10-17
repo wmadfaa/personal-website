@@ -1,9 +1,9 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import Icon, { IconProps } from '../Icon/Icon';
 
 import styles from './InfoBlock.module.css';
-import classnames from 'classnames';
 
 interface Props {
   center?: boolean;
@@ -18,7 +18,7 @@ const InfoBlock: React.FC<Props> = ({ icon, title, content, center }) => (
       <Icon icon={icon} />
     </span>
     <div className={classnames(styles.wrapper, { [styles.center]: center })}>
-      <h3 className={styles.title}>{title}</h3>
+      <h3 className={classnames('text-md', styles.title)}>{title}</h3>
       <p className={styles.content}>{content}</p>
     </div>
   </div>

@@ -26,7 +26,7 @@ const Logo: React.FC = () => {
   const logoImage: FluidObject | FluidObject[] = placeholderImage.childImageSharp.fluid;
 
   return (
-    <Link to="/">
+    <Link className={styles.logo} to="/">
       <figure className={styles.imgPlaceholder}>
         <Img className={styles.img} fluid={logoImage} alt={logoTitle} />
       </figure>

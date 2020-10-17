@@ -1,4 +1,7 @@
 @tailwind base;
+@tailwind components;
+@tailwind screens;
+@tailwind utilities;
 
 body {
   @apply m-0 text-indigo-900 bg-white;

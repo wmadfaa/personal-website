@@ -16,7 +16,7 @@
 }
 
 .title {
-  @apply text-md mt-1 font-semibold;
+  @apply mt-1 font-semibold;
 }
 
 .content {
