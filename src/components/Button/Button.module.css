@@ -1,0 +1,12 @@
+.button {
+  outline: none !important;
+  @apply px-8 py-2 text-indigo-600 border border-teal-300 rounded-full;
+
+  &.primary {
+    @apply bg-teal-300;
+  }
+
+  &.block {
+    @apply w-full;
+  }
+}

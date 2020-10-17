@@ -1,0 +1,7 @@
+.banner {
+  @apply bg-gray-100 border-b border-indigo-100;
+}
+
+.content {
+  @apply mb-8;
+}

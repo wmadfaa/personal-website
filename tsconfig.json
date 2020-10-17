@@ -3,13 +3,20 @@
     "target": "ES2015",
     "module": "CommonJS",
     "declaration": true,
-    "outDir": "lib",
+    "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "jsx": "react",
     "skipLibCheck": true,
-    "types": []
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "dashes"
+        }
+      }
+    ]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "public", ".cache"]
