@@ -1,6 +1,10 @@
 .container {
   @apply flex flex-wrap w-full max-w-screen-md p-5 mx-auto;
 
+  &.items-center {
+    @apply items-center;
+  }
+
   &.section {
     @apply py-8;
 
