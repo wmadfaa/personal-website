@@ -1,0 +1,11 @@
+.title {
+  @apply font-semibold mb-4;
+}
+
+.image {
+  @apply w-full rounded-lg overflow-hidden mt-4 mb-10;
+}
+
+.links {
+  @apply w-full flex justify-between mt-10;
+}

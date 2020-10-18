@@ -18,7 +18,7 @@
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
-  "ignorePatterns": ["*.config.js", "*-config.js"],
+  "ignorePatterns": ["*.config.js", "*-config.js", "*-node.js"],
   "rules": {},
   "overrides": [
     {

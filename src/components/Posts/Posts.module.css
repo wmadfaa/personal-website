@@ -1,0 +1,42 @@
+.posts {
+  @apply w-full flex flex-wrap;
+}
+
+.post {
+  @apply w-full p-3;
+
+  @screen sm {
+    @apply w-1/2;
+  }
+}
+
+.card {
+  @apply w-full h-full rounded-lg flex flex-col overflow-hidden border border-gray-300;
+}
+
+.content {
+  @apply p-4 text-indigo-900;
+}
+
+.image {
+  @apply w-full;
+}
+
+.title {
+  @apply font-semibold mb-4;
+}
+
+.description {
+}
+
+.date {
+  @apply text-xs text-indigo-500;
+}
+
+.tags {
+  @apply p-4 pt-2 mt-auto;
+}
+
+.tag {
+  @apply text-xs text-indigo-900 border border-teal-400 rounded-full px-2 py-1 mr-2;
+}
