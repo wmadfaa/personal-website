@@ -1,0 +1,6 @@
+.contact-info-item {
+  @apply w-full;
+  @screen sm {
+    @apply w-1/3;
+  }
+}
