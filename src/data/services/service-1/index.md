@@ -1,6 +1,6 @@
 ---
 category: 'services'
-title: 'Web Design'
+title: 'Implementation'
 icon: 'laptop-code'
-description: 'Mauris neque libero, aliquet vel mollis nec, euismod sed tellus. Mauris convallis dictum elit id volutpat.'
+description: 'Converting your design into a web page. Coding is our duty by using the most modern technologies.'
 ---

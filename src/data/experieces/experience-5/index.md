@@ -1,9 +1,13 @@
 ---
 category: 'experiences'
-company: 'The Great Gasby Inc'
-position: 'CEO & Founder'
-startDate: 'Jan 2018'
-endDate: 'Present'
+company: 'TheVentury/Wien'
+position: 'React Native Developer'
+startDate: 'Jun 2020'
+endDate: 'Present (as freelancer)'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+* working cross-platform mobile apps.
+  
+* taking care of the implementation and maintenance of libraries and processes that map cross-functional design concepts.
+
+* working on solid front-end architectures in the product teams.

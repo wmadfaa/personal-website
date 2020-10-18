@@ -1,9 +1,14 @@
 ---
 category: 'experiences'
-company: 'Forge Inc'
-position: 'UI/UX Designer'
-startDate: 'Mar 2010'
-endDate: 'Dec 2010'
+company: 'Moonshiner GMBH Company/Vienna'
+position: 'Frontend Developer'
+startDate: 'Jun 2018'
+endDate: 'Aug 2019'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+* Developed new user-facing features
+* Built reusable code and libraries for future use
+* Ensured the technical feasibility of UI/UX designs
+* Optimized application for maximum speed and scalability
+* Assured that all user input is validated before submitting to back-end
+

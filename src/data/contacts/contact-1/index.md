@@ -2,5 +2,5 @@
 category: 'contact'
 title: 'Phone'
 icon: 'phone'
-content: '+122 334 888 323'
+content: '(+43) 660 6805176'
 ---

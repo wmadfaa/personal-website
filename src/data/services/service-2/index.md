@@ -1,6 +1,6 @@
 ---
 category: 'services'
-title: 'Graphic Design'
-icon: 'draw-polygon'
-description: 'Mauris neque libero, aliquet vel mollis nec, euismod sed tellus. Mauris convallis dictum elit id volutpat.'
+title: 'Planning'
+icon: 'ruler-combined'
+description: 'Any projects needs good planning before start coding and by using my experience, you can achieve your project to become reality.'
 ---

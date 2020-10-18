@@ -1,9 +1,11 @@
 ---
 category: 'experiences'
-company: 'Facebook'
-position: 'Frontend Developer'
-startDate: 'May 2013'
-endDate: 'Jun 2015'
+company: 'Freelancing'
+position: 'Freelancer React/React-Native Developer'
+startDate: 'Nov 2019'
+endDate: 'Jun 2020'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+* Designing, developing, and testing UI for mobile and web applications.
+* Build reusable code and libraries for future use.
+* Accurately translate user and business needs into functional frontend code.

@@ -1,6 +1,6 @@
 ---
 category: 'services'
-title: 'Digital Marketing'
-icon: 'bullhorn'
-description: 'Mauris neque libero, aliquet vel mollis nec, euismod sed tellus. Mauris convallis dictum elit id volutpat.'
+title: 'Technical Support'
+icon: 'headset'
+description: 'With more than 3 years of experience, consulting and training is one of my services focusing on web technologies.'
 ---
