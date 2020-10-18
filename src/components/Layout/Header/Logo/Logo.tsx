@@ -1,11 +1,10 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
 
 import styles from './Logo.module.css';
 
 const Logo: React.FC = () => {
-  const { site, placeholderImage } = useStaticQuery(graphql`
+  const { site } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -23,13 +22,9 @@ const Logo: React.FC = () => {
   `);
 
   const logoTitle: string = site.siteMetadata.title;
-  const logoImage: FluidObject | FluidObject[] = placeholderImage.childImageSharp.fluid;
 
   return (
     <Link className={styles.logo} to="/">
-      <figure className={styles.imgPlaceholder}>
-        <Img className={styles.img} fluid={logoImage} alt={logoTitle} />
-      </figure>
       <h1 className={styles.ownerName}>{logoTitle}</h1>
     </Link>
   );

@@ -1,19 +1,19 @@
 .logo {
-  @apply flex items-center mr-auto text-indigo-900;
+  @apply flex items-center mr-auto text-gray-700;
 
   &:hover {
-    @apply text-indigo-900;
+    @apply text-gray-800;
+  }
+
+  @screen dark-mode {
+    @apply text-gray-300;
+
+    &:hover {
+      @apply text-gray-200;
+    }
   }
 }
 
 .owner-name {
-  @apply text-lg;
-}
-
-.img-placeholder {
-  @apply w-16 h-16 mr-3 border border-teal-400 rounded-full;
-}
-
-.img {
-  @apply border-4 border-white rounded-full;
+  @apply text-lg font-semibold;
 }

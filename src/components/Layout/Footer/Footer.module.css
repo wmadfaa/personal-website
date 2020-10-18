@@ -1,5 +1,9 @@
 .footer {
   @apply border-t border-gray-200 py-4;
+
+  @screen dark-mode {
+    @apply border-gray-800;
+  }
 }
 
 .links {
@@ -7,9 +11,17 @@
 }
 
 .link {
-  @apply text-indigo-900 mx-2;
+  @apply text-gray-900 mx-2;
 
   &:hover {
-    @apply text-indigo-600;
+    @apply text-gray-600;
+  }
+
+  @screen dark-mode {
+    @apply text-gray-100;
+
+    &:hover {
+      @apply text-gray-400;
+    }
   }
 }

@@ -1,5 +1,9 @@
 .banner {
-  @apply bg-gray-100 border-b border-indigo-100;
+  @apply bg-gray-100 border-b border-gray-100;
+
+  @screen dark-mode {
+    @apply bg-gray-800 border-gray-800;
+  }
 }
 
 .content {

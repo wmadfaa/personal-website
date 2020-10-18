@@ -4,13 +4,24 @@
 @tailwind utilities;
 
 body {
-  @apply m-0 text-indigo-900 bg-white;
+  @apply m-0 text-gray-900 bg-white;
+
+  @screen dark-mode {
+    @apply text-white bg-gray-900;
+  }
 }
 
 a {
-  @apply text-indigo-600;
+  @apply text-gray-600;
   &:hover {
-    @apply text-indigo-700;
+    @apply text-gray-700;
+  }
+
+  @screen dark-mode {
+    @apply text-gray-400;
+    &:hover {
+      @apply text-gray-300;
+    }
   }
 }
 

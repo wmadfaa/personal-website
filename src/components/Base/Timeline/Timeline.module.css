@@ -1,12 +1,16 @@
 .timeline {
-  @apply flex flex-col w-full p-4 relative border-l border-indigo-200;
+  @apply flex flex-col w-full p-4 relative border-l border-gray-600;
+
+  &:last-child {
+    @apply pb-0;
+  }
 
   @screen sm {
     @apply flex-row;
   }
 
-  &:last-child {
-    @apply pb-0;
+  @screen dark-mode {
+    @apply border-gray-400;
   }
 }
 
@@ -35,12 +39,20 @@
 }
 
 .date {
-  @apply text-xs border  border-teal-400 rounded-full px-2;
+  @apply text-xs border  border-gray-600 rounded-full px-2;
   width: fit-content;
+
+  @screen dark-mode {
+    @apply border-gray-400;
+  }
 }
 
 .point {
-  @apply w-3 h-3 border border-indigo-200 bg-indigo-100 rounded-full absolute;
+  @apply w-3 h-3 border border-gray-600 bg-gray-400 rounded-full absolute;
   left: -6px;
   top: 20px;
+
+  @screen dark-mode {
+    @apply border-gray-400 bg-gray-600;
+  }
 }

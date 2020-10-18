@@ -1,12 +1,20 @@
 .button {
   outline: none !important;
-  @apply px-8 py-2 text-indigo-600 border border-teal-300 rounded-full;
+  @apply px-8 py-2 text-gray-100 border border-gray-900 rounded-full shadow-md;
 
   &.primary {
-    @apply bg-teal-300;
+    @apply bg-gray-900;
   }
 
   &.block {
     @apply w-full;
+  }
+
+  @screen dark-mode {
+    @apply text-gray-900 border-gray-100;
+
+    &.primary {
+      @apply bg-gray-100;
+    }
   }
 }

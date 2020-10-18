@@ -11,27 +11,13 @@
 }
 
 .subtitle {
-  @apply text-xs text-indigo-600 w-full text-left;
-
-  &.center {
-    @apply text-center;
-  }
-}
-
-.separator {
-  @apply relative w-2 h-8 mb-6 -mt-2;
+  @apply text-xs text-gray-600 w-full text-left;
 
   &.center {
     @apply text-center;
   }
 
-  &:before {
-    content: '';
-    @apply bg-indigo-500 h-full w-px absolute left-0;
-  }
-
-  &:after {
-    content: '';
-    @apply bg-teal-400 h-6 w-px absolute ml-1;
+  @screen dark-mode {
+    @apply text-gray-400;
   }
 }
