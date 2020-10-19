@@ -1,5 +1,5 @@
 .info-block {
-  @apply flex flex-col my-4 mx-3 p-4 bg-white rounded-lg border border-gray-600 shadow-sm;
+  @apply flex flex-col p-4 bg-white rounded-lg border border-gray-600 shadow-sm;
   &.center {
     @apply items-center;
   }

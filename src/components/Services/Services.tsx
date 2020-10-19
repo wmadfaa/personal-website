@@ -56,11 +56,7 @@ const Services: React.FC = () => {
             frontmatter: { title, icon, description },
           } = item.node;
 
-          return (
-            <div className={styles.item} key={id}>
-              <InfoBlock icon={icon} title={title} content={description} />
-            </div>
-          );
+          return <InfoBlock key={id} icon={icon} title={title} content={description} />;
         })}
       </div>
     </Container>

@@ -1,27 +1,47 @@
 ---
 category: 'blog'
 cover: './cover.jpg'
-title: 'Blog Post 1'
-description: 'Mauris neque libero, aliquet vel mollis nec, euismod sed tellus. Mauris convallis dictum elit id volutpat.'
-date: '2019-11-13'
-tags: ['Photography']
+title: '@how-to add a dark theme to your web app '
+description: 'In this short article, I will show you how to do this only using CSS.'
+date: '2020-10-19'
+tags: ['CSS']
 published: true
 ---
 
-_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat._.
+_Making your web-app able to switch between dark and light theme according to the preferred-user-theme is a nice touch that makes your web-app feels like Native apps. In this short article, I will show you how to do this only using CSS._.
 
-**Sed ut perspiciatis unde omnis**
+To detect if the user has requested the system to use a light/dark color theme, we are going to use the prefers-color-scheme CSS media query.
+here is an example of how you can use it in your code.
 
-![Aliquet vel mollis nec](./cover.jpg)
+```css
+body { 
+    background: white; 
+    color: black; 
+}
 
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+@media (prefers-color-scheme: dark) {
+    body { 
+        background: black; 
+        color: white; 
+    }
+}
+```
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
 
-**Sconsectetur, adipisci velits**
+---
+**NOTE**
 
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+the styles inside ```@media (prefers-color-scheme: light) {...}``` will be applied if the user has notified the system that he prefers the light theme or if he has not expressed an active preference.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+---
 
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+---
+**TIP**
+
+you can change the prefers-color-scheme directly from the 'Rendering panel' in Chrome developer-tools.
+
+1. 1 Open the Chrome Developer tools
+2. 2 Open the Command Control: Ctrl+Shift+P or Command+Shift+P (Mac)
+3. 3 Type "Show rendering"
+4. 4 Set the Emulate CSS media feature prefers-color-scheme to the value you want to debug
+---
