@@ -1,0 +1,57 @@
+backend:
+  name: github
+  repo: wmadfaa/personal-website
+  branch: main
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'src/data/about-page.md'
+        label: 'About Page'
+        name: 'about-page'
+        fields:
+          [
+            { label: 'Category', name: 'category', widget: 'hidden', default: 'about page' },
+            {
+              label: 'Hero-Banner section',
+              name: 'heroBannerSection',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Role', name: 'role' },
+                  { label: 'Greeting', name: 'greeting' },
+                  { label: 'About me', name: 'aboutMe', widget: 'text' },
+                ],
+            },
+            {
+              label: 'Services section',
+              name: 'servicesSection',
+              widget: 'object',
+              fields:
+                [
+                  { label: 'Title', name: 'title' },
+                  { label: 'Subtitle', name: 'subtitle' },
+                  {
+                    label: 'Services',
+                    name: 'services',
+                    widget: 'list',
+                    fields:
+                      [
+                        { label: 'Title', name: 'title' },
+                        { label: 'Icon', name: 'icon' },
+                        { label: 'Description', name: 'description', widget: 'text' },
+                      ],
+                  },
+                ],
+            },
+          ]
