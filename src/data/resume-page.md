@@ -5,7 +5,7 @@ SEO:
 experience:
   title: All Companies
   subtitle: My Experience
-  experiences section:
+  experiences:
     - experience-udTUf2bj1
     - experience-zOuK-UsKF
     - experience-v89cqeOnQ
@@ -13,7 +13,7 @@ experience:
 education:
   title: Education
   subtitle: My Qualification
-  educations section:
+  educations:
     - education-Jv9JYs9EN
     - education-mrouv4Vof
 ---
