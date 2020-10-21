@@ -1,9 +1,10 @@
 ---
-category: 'experiences'
-company: 'TheVentury/Wien'
-position: 'React Native Developer'
-startDate: 'Jun 2020'
-endDate: 'Present (as freelancer)'
+category: experiences
+id: category-cz3ei9cMC
+company: TheVentury/Wien
+position: React Native Developer
+startDate: Jun 2020
+endDate: Present (as freelancer)
 ---
 
 * working cross-platform mobile apps.
