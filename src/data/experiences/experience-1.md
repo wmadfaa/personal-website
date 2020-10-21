@@ -1,9 +1,10 @@
 ---
-category: 'experiences'
-company: 'Moonshiner GMBH Company/Vienna'
-position: 'Frontend Developer'
-startDate: 'Jun 2018'
-endDate: 'Aug 2019'
+category: experiences
+id: category-udTUf2bj1
+company: Moonshiner GMBH Company/Vienna
+position: Frontend Developer
+startDate: Jun 2018
+endDate: Aug 2019
 ---
 
 * Developed new user-facing features
