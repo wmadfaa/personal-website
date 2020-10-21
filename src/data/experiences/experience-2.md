@@ -1,9 +1,10 @@
 ---
-category: 'experiences'
-company: 'Moodley Interactive/Graz'
-position: 'React Native Developer'
-startDate: 'Aug 2019'
-endDate: 'Nov 2019'
+category: experiences
+id: category-zOuK-UsKF
+company: Moodley Interactive/Graz
+position: React Native Developer
+startDate: Aug 2019
+endDate: Nov 2019
 ---
 
 * Built pixel-perfect, buttery smooth UIs across both mobile platforms.
