@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/SEO';
+import SEO from '../components/Layout/SEO';
 import ContactsPageTemplate from '../templates/contacts-page';
 import { useContactsPageStaticQuery } from '../templates/contacts-page';
 

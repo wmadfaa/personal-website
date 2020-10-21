@@ -6,11 +6,14 @@ import MainNav from './Nav/Nav';
 import Logo from './Logo/Logo';
 
 import styles from './Header.module.css';
+import { LogoProps } from './Logo/Logo';
 
-const Header: React.FC = () => (
+export type HeaderProps = LogoProps;
+
+const Header: React.FC<HeaderProps> = ({ logoTitle }) => (
   <header className={styles.header}>
     <Container itemsCenter>
-      <Logo />
+      <Logo logoTitle={logoTitle} />
       <MainNav />
     </Container>
   </header>

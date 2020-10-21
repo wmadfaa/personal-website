@@ -1,18 +1,11 @@
 import React from 'react';
 
-import SEO from '../components/SEO';
-import Layout from '../components/Layout/Layout';
 import AboutPageTemplate, { useAboutPageStaticQuery } from '../templates/about-page';
 
 const IndexPage: React.FC = () => {
-  const { heroBannerSection, servicesSection } = useAboutPageStaticQuery();
+  const { heroBannerSection, servicesSection, SEO } = useAboutPageStaticQuery();
 
-  return (
-    <Layout>
-      <SEO title="About Me" />
-      <AboutPageTemplate heroBannerSection={heroBannerSection} servicesSection={servicesSection} />
-    </Layout>
-  );
+  return <AboutPageTemplate SEO={SEO} heroBannerSection={heroBannerSection} servicesSection={servicesSection} />;
 };
 
 export default IndexPage;

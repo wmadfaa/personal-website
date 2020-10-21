@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/SEO';
+import SEO from '../components/Layout/SEO';
 import Layout from '../components/Layout/Layout';
 import Experience from '../components/Experience/Experience';
 import Education from '../components/Education/Education';
