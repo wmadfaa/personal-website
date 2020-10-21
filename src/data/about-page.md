@@ -1,7 +1,7 @@
 ---
 category: about page
-SEO: 
-  title: About Wasim Almadfaa
+SEO:
+  title: About me
 heroBannerSection:
   role: Frontend Developer
   greeting: Hi, My Name is Wasim Almadfaa
