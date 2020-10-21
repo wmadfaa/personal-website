@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Timeline.module.css';
 
-interface Props {
+export interface TimelineProps {
   title: string;
   subtitle: string;
   content: React.ReactNode;
@@ -10,7 +10,7 @@ interface Props {
   endDate: string;
 }
 
-const Timeline: React.FC<Props> = ({ title, subtitle, content, startDate, endDate }) => (
+const Timeline: React.FC<TimelineProps> = ({ title, subtitle, content, startDate, endDate }) => (
   <div className={styles.timeline}>
     <span className={styles.point} />
     <div className={styles.details}>

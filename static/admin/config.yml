@@ -14,7 +14,6 @@ public_folder: /img
 
 collections:
   - name: experiences
-    hide: true
     label: Experiences
     folder: "src/data/experiences"
     fields:
@@ -34,7 +33,6 @@ collections:
           widget: "markdown",
         }
   - name: educations
-    hide: true
     label: Educations
     folder: "src/data/educations"
     fields:
@@ -134,6 +132,54 @@ collections:
                   { label: "Title", name: "title" },
                   { label: "Icon", name: "icon" },
                   { label: "Content", name: "content" },
+                ],
+            },
+          ]
+      - file: "src/data/resume-page.md"
+        label: "Resume Page"
+        name: "resume-page"
+        fields:
+          [
+            {
+              label: "Category",
+              name: "category",
+              widget: "hidden",
+              default: "resume page",
+            },
+            {
+              label: "SEO",
+              name: "SEO",
+              widget: "object",
+              fields: [{ label: "page title", name: "title" }],
+            },
+            {
+              label: "Experience",
+              name: "experience",
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "markdown" },
+                  { label: "Subtitle", name: "subtitle" },
+                  {
+                    label: "Experiences",
+                    name: "experiences section",
+                    multiple: true,
+                    widget: "relation",
+                    collection: "experiences",
+                    search_fields: [company, position, startDate, endDate],
+                    value_field: "company",
+                    display_fields: [company],
+                  },
+                ],
+            },
+            {
+              label: "Education",
+              name: "education",
+              type: "object",
+              fields:
+                [
+                  { label: "Title", name: "title" },
+                  { label: "Subtitle", name: "subtitle" },
                 ],
             },
           ]
