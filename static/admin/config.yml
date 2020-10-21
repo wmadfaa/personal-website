@@ -13,6 +13,27 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: experiences
+    label: Experiences
+    folder: "src/data/experiences"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "Category",
+          name: "category",
+          widget: "hidden",
+          default: "experience",
+        }
+      - { label: "Company", name: "company" }
+      - { label: "Position", name: "position" }
+      - { label: "Start Date", name: "startDate", widget: "datetime" }
+      - { label: "End Date", name: "endDate", widget: "datetime" }
+      - {
+          label: "Duties and Responsibilities",
+          name: "body",
+          widget: "markdown",
+        }
   - name: "pages"
     label: "Pages"
     files:
