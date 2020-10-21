@@ -14,10 +14,10 @@ public_folder: /img
 
 collections:
   - name: experiences
+    hide: true
     label: Experiences
     folder: "src/data/experiences"
     create: true
-    slug: "{{slug}}"
     fields:
       - {
           label: "Category",
@@ -34,6 +34,23 @@ collections:
           name: "body",
           widget: "markdown",
         }
+  - name: educations
+    hide: false
+    label: Educations
+    folder: "src/data/educations"
+    create: true
+    fields:
+      - {
+          label: "Category",
+          name: "category",
+          widget: "hidden",
+          default: "education",
+        }
+      - { label: "University or School", name: "university" }
+      - { label: "Degree", name: "degree" }
+      - { label: "Start Date", name: "startDate", widget: "datetime" }
+      - { label: "End Date", name: "endDate", widget: "datetime" }
+      - { label: "Tasks and Activities", name: "body", widget: "markdown" }
   - name: "pages"
     label: "Pages"
     files:
