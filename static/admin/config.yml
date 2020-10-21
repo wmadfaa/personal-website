@@ -70,3 +70,34 @@ collections:
                 ],
             },
           ]
+      - file: "src/data/contacts-page.md"
+        label: "Contact Page"
+        name: "contacts-page"
+        fields:
+          [
+            {
+              label: "Category",
+              name: "category",
+              widget: "hidden",
+              default: "contacts page",
+            },
+            {
+              label: "SEO",
+              name: "SEO",
+              widget: "object",
+              fields: [{ label: "page title", name: "title" }],
+            },
+            { label: "Title", name: "title" },
+            { label: "Subtitle", name: "subtitle" },
+            {
+              label: "Contacts",
+              name: "contacts",
+              widget: "list",
+              fields:
+                [
+                  { label: "Title", name: "title" },
+                  { label: "Icon", name: "icon" },
+                  { label: "Content", name: "content" },
+                ],
+            },
+          ]

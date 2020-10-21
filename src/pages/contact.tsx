@@ -1,16 +1,15 @@
 import React from 'react';
 
-import SEO from '../components/Layout/SEO';
 import ContactsPageTemplate from '../templates/contacts-page';
 import { useContactsPageStaticQuery } from '../templates/contacts-page';
+import Layout from '../components/Layout/Layout';
 
 const ContactPage: React.FC = () => {
-  const contactsPageProps = useContactsPageStaticQuery();
+  const { SEO, ...contactsPageProps } = useContactsPageStaticQuery();
   return (
-    <>
-      <SEO title="Contact" />
+    <Layout seo={SEO}>
       <ContactsPageTemplate {...contactsPageProps} />
-    </>
+    </Layout>
   );
 };
 

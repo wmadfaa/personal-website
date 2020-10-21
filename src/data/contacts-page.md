@@ -2,6 +2,8 @@
 category: contacts page
 title: Contacts
 subtitle: For more info contact me
+SEO:
+  title: Contact
 contacts: 
     - title: Phone
       icon: phone
