@@ -3,27 +3,25 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import HeroBanner, { HeroBannerProps } from '../components/HeroBanner/HeroBanner';
 import Services, { ServicesProps } from '../components/Services/Services';
-import Layout from '../components/Layout/Layout';
 import { SeoProps } from '../components/Layout/SEO/index';
 
 export interface AboutPageTemplateData {
   heroBannerSection: HeroBannerProps;
   servicesSection: ServicesProps;
-  SEO: SeoProps;
 }
 
-const AboutPageTemplate: React.FC<AboutPageTemplateData> = ({ SEO, heroBannerSection, servicesSection }) => {
+const AboutPageTemplate: React.FC<AboutPageTemplateData> = ({ heroBannerSection, servicesSection }) => {
   return (
-    <Layout seo={SEO}>
+    <>
       <HeroBanner {...heroBannerSection} />
       <Services {...servicesSection} />
-    </Layout>
+    </>
   );
 };
 
 export default AboutPageTemplate;
 
-export function useAboutPageStaticQuery(): AboutPageTemplateData {
+export function useAboutPageStaticQuery(): AboutPageTemplateData & { SEO: SeoProps } {
   const {
     markdownRemark: { frontmatter },
   } = useStaticQuery(graphql`
