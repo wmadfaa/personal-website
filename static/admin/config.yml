@@ -23,6 +23,7 @@ collections:
           widget: "hidden",
           default: "experience",
         }
+      - { label: "ID", name: "id", widget: "ncw-id", prefix: experience }
       - { label: "Company", name: "company" }
       - { label: "Position", name: "position" }
       - { label: "Start Date", name: "startDate", widget: "datetime" }
@@ -42,6 +43,7 @@ collections:
           widget: "hidden",
           default: "education",
         }
+      - { label: "ID", name: "id", widget: "ncw-id", prefix: education }
       - { label: "University or School", name: "university" }
       - { label: "Degree", name: "degree" }
       - { label: "Start Date", name: "startDate", widget: "datetime" }

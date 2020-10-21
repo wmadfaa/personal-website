@@ -1,6 +1,6 @@
 ---
 category: experiences
-id: category-v89cqeOnQ
+id: experience-v89cqeOnQ
 company: Freelancing
 position: Freelancer React/React-Native Developer
 startDate: Nov 2019
