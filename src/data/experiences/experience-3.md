@@ -1,9 +1,10 @@
 ---
-category: 'experiences'
-company: 'Freelancing'
-position: 'Freelancer React/React-Native Developer'
-startDate: 'Nov 2019'
-endDate: 'Jun 2020'
+category: experiences
+id: category-v89cqeOnQ
+company: Freelancing
+position: Freelancer React/React-Native Developer
+startDate: Nov 2019
+endDate: Jun 2020
 ---
 
 * Designing, developing, and testing UI for mobile and web applications.
