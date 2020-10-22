@@ -1,6 +1,6 @@
 ---
 category: experiences
-id: experience-zOuK-UsKF
+experience_id: experience-zOuK-UsKF
 company: Moodley Interactive/Graz
 position: React Native Developer
 startDate: Aug 2019

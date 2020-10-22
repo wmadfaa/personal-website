@@ -1,6 +1,6 @@
 ---
 category: education
-id: education-mrouv4Vof
+education_id: education-mrouv4Vof
 university: Stanford University
 degree: Master of Science
 startDate: Oct 2008

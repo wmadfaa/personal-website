@@ -1,79 +1,40 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Timeline from '../Base/Timeline/Timeline';
 import Container from '../Base/Container/Container';
 import TitleSection from '../Base/TitleSection/TitleSection';
+import HTMLContent from '../Base/HTMLContent/HTMLContent';
+import { HTMLContentProps } from '../Base/HTMLContent/HTMLContent';
+import { TitleSectionData } from '../Base/TitleSection/TitleSection';
 
-interface Experience {
-  node: {
-    id: string;
-    html: React.ReactNode;
-    frontmatter: {
-      company: string;
-      position: string;
-      startDate: string;
-      endDate: string;
-    };
-  };
+export interface ExperienceTimelineData {
+  body: string;
+  company: string;
+  endDate: string;
+  position: string;
+  startDate: string;
 }
 
-const Experience: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
-    query {
-      markdownRemark(frontmatter: { category: { eq: "experiences section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "experiences" } } }
-        sort: { order: DESC, fields: fileAbsolutePath }
-      ) {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              company
-              position
-              startDate
-              endDate
-            }
-          }
-        }
-      }
-    }
-  `);
+export interface ExperienceProps extends TitleSectionData {
+  experiences: ExperienceTimelineData[];
+  contentComponent?: React.ElementType<HTMLContentProps>;
+}
 
-  const sectionTitle = markdownRemark.frontmatter;
-  const experiences: Experience[] = allMarkdownRemark.edges;
+const Experience: React.FC<ExperienceProps> = ({ title, subtitle, experiences, contentComponent }) => {
+  const Content = contentComponent || HTMLContent;
 
   return (
     <Container section>
-      <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} />
+      <TitleSection title={title} subtitle={subtitle} />
 
-      {experiences.map((item) => {
-        const {
-          id,
-          html,
-          frontmatter: { company, position, startDate, endDate },
-        } = item.node;
-
+      {experiences.map(({ body, company, position, endDate, startDate }, index) => {
+        const content = <Content content={body} />;
         return (
           <Timeline
-            key={id}
+            key={index}
             title={company}
             subtitle={position}
-            content={
-              <span
-                className="format-html"
-                dangerouslySetInnerHTML={{
-                  __html: html as any,
-                }}
-              />
-            }
+            content={content}
             startDate={startDate}
             endDate={endDate}
           />

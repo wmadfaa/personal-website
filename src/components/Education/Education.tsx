@@ -1,79 +1,40 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import Timeline from '../Base/Timeline/Timeline';
 import Container from '../Base/Container/Container';
 import TitleSection from '../Base/TitleSection/TitleSection';
+import HTMLContent from '../Base/HTMLContent/HTMLContent';
+import { HTMLContentProps } from '../Base/HTMLContent/HTMLContent';
+import { TitleSectionData } from '../Base/TitleSection/TitleSection';
 
-interface Education {
-  node: {
-    id: string;
-    html: React.ReactNode;
-    frontmatter: {
-      university: string;
-      degree: string;
-      startDate: string;
-      endDate: string;
-    };
-  };
+export interface EducationTimelineData {
+  body: string;
+  university: string;
+  degree: string;
+  endDate: string;
+  startDate: string;
 }
 
-const Education: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
-    query {
-      markdownRemark(frontmatter: { category: { eq: "education section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "education" } } }
-        sort: { order: DESC, fields: fileAbsolutePath }
-      ) {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              university
-              degree
-              startDate
-              endDate
-            }
-          }
-        }
-      }
-    }
-  `);
+export interface EducationProps extends TitleSectionData {
+  educations: EducationTimelineData[];
+  contentComponent?: React.ElementType<HTMLContentProps>;
+}
 
-  const sectionTitle = markdownRemark.frontmatter;
-  const education: Education[] = allMarkdownRemark.edges;
+const Education: React.FC<EducationProps> = ({ title, subtitle, educations, contentComponent }) => {
+  const Content = contentComponent || HTMLContent;
 
   return (
     <Container section>
-      <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} />
+      <TitleSection title={title} subtitle={subtitle} />
 
-      {education.map((item) => {
-        const {
-          id,
-          html,
-          frontmatter: { university, degree, startDate, endDate },
-        } = item.node;
-
+      {educations.map(({ body, university, degree, endDate, startDate }, index) => {
+        const content = <Content content={body} />;
         return (
           <Timeline
-            key={id}
+            key={index}
             title={university}
             subtitle={degree}
-            content={
-              <span
-                className="format-html"
-                dangerouslySetInnerHTML={{
-                  __html: html as any,
-                }}
-              />
-            }
+            content={content}
             startDate={startDate}
             endDate={endDate}
           />

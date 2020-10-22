@@ -72,4 +72,8 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
+  mapping: {
+    'MarkdownRemark.frontmatter.education.educations': 'MarkdownRemark.frontmatter.education_id',
+    'MarkdownRemark.frontmatter.experience.experiences': 'MarkdownRemark.frontmatter.experience_id'
+  }
 };

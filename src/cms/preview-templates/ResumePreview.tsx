@@ -1,36 +1,40 @@
 import React from 'react';
+import marked from 'marked';
 import { PreviewTemplateComponentProps } from 'netlify-cms-core';
-import Container from '../../components/Base/Container/Container';
-import TitleSection from '../../components/Base/TitleSection/TitleSection';
-import Timeline from '../../components/Base/Timeline/Timeline';
+import Education from '../../components/Education/Education';
+import Experience from '../../components/Experience/Experience';
+import HTMLContent, { HTMLContentProps } from '../../components/Base/HTMLContent/HTMLContent';
+
+const CustomHTMLContent: React.FC<HTMLContentProps> = ({ content, ...props }) => {
+  return <HTMLContent {...props} content={marked(content)} />;
+};
 
 const ResumePreview: React.FC<PreviewTemplateComponentProps> = ({ entry, fieldsMetaData }) => {
   const data = entry.getIn(['data']).toJS();
+  const experiences = fieldsMetaData.getIn(['experience', 'experiences', 'experiences']);
+  const educations = fieldsMetaData.getIn(['education', 'educations', 'educations']);
 
-  console.log(data, fieldsMetaData.toJS(), fieldsMetaData.getIn(['educations', 'educations'])?.toJS());
+  if (!data || !experiences || !educations) {
+    return <div>loading...</div>;
+  }
 
-  return <div></div>;
-
-  //   return (
-  //     <>
-  //       <Container section>
-  //         <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} />
-
-  //         {experiences.map((item) => {
-  //           //   return (
-  //           //     <Timeline
-  //           //       key={id}
-  //           //       title={company}
-  //           //       subtitle={position}
-  //           //       content={widgetFor('body')}
-  //           //       startDate={startDate}
-  //           //       endDate={endDate}
-  //           //     />
-  //           //   );
-  //         })}
-  //       </Container>
-  //     </>
-  //   );
+  return (
+    <>
+      <Experience
+        title={data.experience.title}
+        subtitle={data.experience.subtitle}
+        experiences={data.experience.experiences.map((experienceId: string) => experiences.get(experienceId).toJS())}
+        contentComponent={CustomHTMLContent}
+      />
+      <hr />
+      <Education
+        title={data.education.title}
+        subtitle={data.education.subtitle}
+        educations={data.education.educations.map((educationId: string) => educations.get(educationId).toJS())}
+        contentComponent={CustomHTMLContent}
+      />
+    </>
+  );
 };
 
 export default ResumePreview;

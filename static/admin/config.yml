@@ -23,7 +23,12 @@ collections:
           widget: "hidden",
           default: "experience",
         }
-      - { label: "ID", name: "id", widget: "ncw-id", prefix: experience }
+      - {
+          label: "ID",
+          name: "experience_id",
+          widget: "ncw-id",
+          prefix: experience,
+        }
       - { label: "Company", name: "company" }
       - { label: "Position", name: "position" }
       - { label: "Start Date", name: "startDate", widget: "datetime" }
@@ -43,7 +48,12 @@ collections:
           widget: "hidden",
           default: "education",
         }
-      - { label: "ID", name: "id", widget: "ncw-id", prefix: education }
+      - {
+          label: "ID",
+          name: "education_id",
+          widget: "ncw-id",
+          prefix: education,
+        }
       - { label: "University or School", name: "university" }
       - { label: "Degree", name: "degree" }
       - { label: "Start Date", name: "startDate", widget: "datetime" }
@@ -164,12 +174,12 @@ collections:
                   { label: "Subtitle", name: "subtitle" },
                   {
                     label: "Experiences",
-                    name: "experiences section",
+                    name: "experiences",
                     multiple: true,
                     widget: "relation",
                     collection: "experiences",
                     search_fields: [company, position, startDate, endDate],
-                    value_field: "id",
+                    value_field: "experience_id",
                     display_fields: [company],
                   },
                 ],
@@ -184,7 +194,7 @@ collections:
                   { label: "Subtitle", name: "subtitle" },
                   {
                     label: "Educations",
-                    name: "educations section",
+                    name: "educations",
                     multiple: true,
                     widget: "relation",
                     collection: "educations",
@@ -194,7 +204,7 @@ collections:
                         startDate,
                         endDate,
                       ],
-                    value_field: "id",
+                    value_field: "education_id",
                     display_fields: [university],
                   },
                 ],

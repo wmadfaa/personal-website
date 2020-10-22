@@ -1,17 +1,17 @@
 import React from 'react';
 
-import SEO from '../components/Layout/SEO';
 import Layout from '../components/Layout/Layout';
-import Experience from '../components/Experience/Experience';
-import Education from '../components/Education/Education';
+import ResumePageTemplate from '../templates/resume-page';
+import { useResumePageStaticQuery } from '../templates/resume-page';
 
-const ResumePage: React.FC = () => (
-  <Layout>
-    <SEO title="Resume" />
-    <Experience />
-    <hr />
-    <Education />
-  </Layout>
-);
+const ResumePage: React.FC = () => {
+  const { SEO, ...resumePageTemplateProps } = useResumePageStaticQuery();
+
+  return (
+    <Layout seo={SEO}>
+      <ResumePageTemplate {...resumePageTemplateProps} />
+    </Layout>
+  );
+};
 
 export default ResumePage;

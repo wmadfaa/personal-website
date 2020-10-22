@@ -1,6 +1,6 @@
 ---
 category: education
-id: education-Jv9JYs9EN
+education_id: education-Jv9JYs9EN
 university: Columbia University
 degree: Bachelor
 startDate: Oct 2005
