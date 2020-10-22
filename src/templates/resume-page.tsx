@@ -30,14 +30,14 @@ const ResumePageTemplate: React.FC<ResumePageTemplateProps> = ({
       <Experience
         title={experienceSection.title}
         subtitle={experienceSection.subtitle}
-        experiences={experiences}
+        experiences={experiences.reverse()}
         contentComponent={contentComponent}
       />
       <hr />
       <Education
         title={educationSection.title}
         subtitle={educationSection.subtitle}
-        educations={educations}
+        educations={educations.reverse()}
         contentComponent={contentComponent}
       />
     </>
