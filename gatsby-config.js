@@ -38,6 +38,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-prismjs`,
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -74,6 +75,6 @@ module.exports = {
   ],
   mapping: {
     'MarkdownRemark.frontmatter.education.educations': 'MarkdownRemark.frontmatter.education_id',
-    'MarkdownRemark.frontmatter.experience.experiences': 'MarkdownRemark.frontmatter.experience_id'
-  }
+    'MarkdownRemark.frontmatter.experience.experiences': 'MarkdownRemark.frontmatter.experience_id',
+  },
 };

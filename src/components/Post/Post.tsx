@@ -3,6 +3,8 @@ import Link from 'gatsby-link';
 
 import Container from '../../components/Base/Container/Container';
 import TitleSection from '../../components/Base/TitleSection/TitleSection';
+import HTMLContent from '../Base/HTMLContent/HTMLContent';
+import { HTMLContentProps } from '../Base/HTMLContent/HTMLContent';
 
 import styles from './Post.module.css';
 
@@ -26,21 +28,19 @@ export interface PostProps {
     next: BlogPost;
     previous: BlogPost;
   };
+  contentComponent?: React.ElementType<HTMLContentProps>;
 }
 
-const Post: React.FC<PostProps> = ({ data, pageContext }) => {
+const Post: React.FC<PostProps> = ({ contentComponent, data, pageContext }) => {
+  const Content = contentComponent || HTMLContent;
+
   const post = data.markdownRemark;
   const { previous, next } = pageContext;
 
   return (
     <Container section>
       <TitleSection title={post.frontmatter.date} subtitle={post.frontmatter.title} />
-      <span
-        className="format-html"
-        dangerouslySetInnerHTML={{
-          __html: post.html as any,
-        }}
-      />
+      <Content content={post.html as any} />
       <div className={styles.links}>
         <span>
           {previous && (

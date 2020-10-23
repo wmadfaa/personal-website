@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 export interface HTMLContentProps {
   content: string;
@@ -6,7 +7,10 @@ export interface HTMLContentProps {
 }
 
 const HTMLContent: React.FC<HTMLContentProps> = ({ content, className }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+  <div
+    className={classnames('prose prose-sm md:prose-lg dark-mode:prose-dark', className)}
+    dangerouslySetInnerHTML={{ __html: content }}
+  />
 );
 
 export default HTMLContent;

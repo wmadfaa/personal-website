@@ -26,22 +26,15 @@ body {
     }
 }
 ```
-
-
----
 **NOTE**
 
-the styles inside ```@media (prefers-color-scheme: light) {...}``` will be applied if the user has notified the system that he prefers the light theme or if he has not expressed an active preference.
+the styles inside `@media (prefers-color-scheme: light) {...}` will be applied if the user has notified the system that he prefers the light theme or if he has not expressed an active preference.
 
----
-
----
 **TIP**
 
 you can change the prefers-color-scheme directly from the 'Rendering panel' in Chrome developer-tools.
 
-1. 1 Open the Chrome Developer tools
-2. 2 Open the Command Control: Ctrl+Shift+P or Command+Shift+P (Mac)
-3. 3 Type "Show rendering"
-4. 4 Set the Emulate CSS media feature prefers-color-scheme to the value you want to debug
----
+1.  Open the Chrome Developer tools
+2.  Open the Command Control: Ctrl+Shift+P or Command+Shift+P (Mac)
+3.  Type "Show rendering"
+4.  Set the Emulate CSS media feature prefers-color-scheme to the value you want to debug
