@@ -5,7 +5,6 @@ module.exports = {
     author: `Wasim Almadfaa`,
   },
   plugins: [
-    `gatsby-plugin-postcss`,
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
@@ -18,8 +17,8 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-react-helmet`,
     'gatsby-plugin-typescript',
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -69,9 +68,16 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.ts`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-tailwindcss`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        tailwind: true,
+        purgeOnly: [`src/assets/styles/global.css`],
+      },
+    },
   ],
   mapping: {
     'MarkdownRemark.frontmatter.education.educations': 'MarkdownRemark.frontmatter.education_id',
