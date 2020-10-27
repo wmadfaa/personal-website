@@ -68,7 +68,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.ts`,
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-tailwindcss`,
     {
@@ -78,6 +77,7 @@ module.exports = {
         purgeOnly: [`src/assets/styles/global.css`],
       },
     },
+    `gatsby-plugin-remove-serviceworker`,
   ],
   mapping: {
     'MarkdownRemark.frontmatter.education.educations': 'MarkdownRemark.frontmatter.education_id',
