@@ -33,13 +33,13 @@ const ResumePageTemplate: React.FC<ResumePageTemplateProps> = ({
         experiences={experiences.reverse()}
         contentComponent={contentComponent}
       />
-      <hr />
+      {/* <hr />
       <Education
         title={educationSection.title}
         subtitle={educationSection.subtitle}
         educations={educations.reverse()}
         contentComponent={contentComponent}
-      />
+      /> */}
     </>
   );
 };
