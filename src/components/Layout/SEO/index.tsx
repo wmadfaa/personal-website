@@ -27,6 +27,7 @@ const SEO: React.FC<SeoProps> = ({ description, lang, author, title }) => {
 
 SEO.defaultProps = {
   lang: `en`,
+  title: `Wasim Almadfaa`,
   description: ``,
 };
 

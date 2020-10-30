@@ -1,0 +1,34 @@
+.root {
+  @apply mb-2 px-4 py-3  border-t-4  rounded-b shadow-md;
+
+  &.success {
+    @apply text-green-700 bg-green-100 border-green-500;
+  }
+
+  &.error {
+    @apply text-red-700 bg-red-100 border-red-500;
+  }
+}
+
+.content {
+  @apply flex;
+}
+
+.title {
+  @apply font-bold;
+}
+
+.msg {
+  @apply text-sm pb-1;
+}
+
+.close-btn {
+  @apply ml-4 -mt-2 text-lg cursor-pointer text-gray-900 pointer-events-auto;
+}
+
+.notifications-container {
+  position: fixed;
+  top: theme('spacing.4');
+  right: theme('spacing.4');
+  pointer-events: none;
+}

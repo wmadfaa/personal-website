@@ -7,16 +7,8 @@ import HTMLContent from '../Base/HTMLContent/HTMLContent';
 import { HTMLContentProps } from '../Base/HTMLContent/HTMLContent';
 import { TitleSectionData } from '../Base/TitleSection/TitleSection';
 
-export interface ExperienceTimelineData {
-  body: string;
-  company: string;
-  endDate: string;
-  position: string;
-  startDate: string;
-}
-
 export interface ExperienceProps extends TitleSectionData {
-  experiences: ExperienceTimelineData[];
+  experiences: Array<{ body: string; company: string; endDate: string; position: string; startDate: string }>;
   contentComponent?: React.ElementType<HTMLContentProps>;
 }
 

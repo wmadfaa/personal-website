@@ -8,51 +8,39 @@ import { HTMLContentProps } from '../Base/HTMLContent/HTMLContent';
 
 import styles from './Post.module.css';
 
-interface BlogPost {
-  html: React.ReactNode;
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    title: string;
-    date: string;
-  };
+interface NavigationLinkProps {
+  slug: string;
+  title: string;
 }
 
 export interface PostProps {
-  data: {
-    markdownRemark: BlogPost;
-  };
-  pageContext: {
-    slug: string;
-    next: BlogPost;
-    previous: BlogPost;
-  };
+  date: string;
+  title: string;
+  body: string;
+  prevLink: NavigationLinkProps | null;
+  nextLink: NavigationLinkProps | null;
   contentComponent?: React.ElementType<HTMLContentProps>;
 }
 
-const Post: React.FC<PostProps> = ({ contentComponent, data, pageContext }) => {
+const Post: React.FC<PostProps> = ({ date, title, body, prevLink, nextLink, contentComponent }) => {
   const Content = contentComponent || HTMLContent;
-
-  const post = data.markdownRemark;
-  const { previous, next } = pageContext;
 
   return (
     <Container section>
-      <TitleSection title={post.frontmatter.date} subtitle={post.frontmatter.title} />
-      <Content content={post.html as any} />
+      <TitleSection title={date} subtitle={title} />
+      <Content content={body} />
       <div className={styles.links}>
         <span>
-          {previous && (
-            <Link to={previous.fields.slug} rel="previous">
-              ← {previous.frontmatter.title}
+          {prevLink && (
+            <Link to={prevLink.slug} rel="previous">
+              ← {prevLink.title}
             </Link>
           )}
         </span>
         <span>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
+          {nextLink && (
+            <Link to={nextLink.slug} rel="next">
+              {nextLink.title} →
             </Link>
           )}
         </span>

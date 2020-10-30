@@ -17,39 +17,77 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-typescript',
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
+        path: `${__dirname}/static/img`,
+        name: `uploads`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content`,
         name: `content`,
-        path: `${__dirname}/src/data`,
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: `images`,
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-prismjs`,
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: `>`,
+              showLineNumbers: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              name: `uploads`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 768,
               linkImagesToOriginal: false,
             },
           },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `static`,
+            },
+          },
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-graphql-codegen`,
+    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: false, // Print removed selectors and processed file names
+        develop: false, // Enable while using `gatsby develop`
+        tailwind: true, // Enable tailwindcss support
+        purgeOnly: [`src/styles/tailwind.css`],
+      },
+    },
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -59,28 +97,19 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
     {
-      resolve: 'gatsby-plugin-netlify-cms',
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
-        modulePath: `${__dirname}/src/cms/cms.ts`,
+        analyzerPort: 3000,
+        develop: false,
+        production: true,
       },
     },
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-tailwindcss`,
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        tailwind: true,
-        purgeOnly: [`src/assets/styles/global.css`],
-      },
-    },
-    `gatsby-plugin-remove-serviceworker`,
+    `gatsby-plugin-offline`,
   ],
-  mapping: {
-    'MarkdownRemark.frontmatter.education.educations': 'MarkdownRemark.frontmatter.education_id',
-    'MarkdownRemark.frontmatter.experience.experiences': 'MarkdownRemark.frontmatter.experience_id',
-  },
 };

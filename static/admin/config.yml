@@ -13,200 +13,259 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: experiences
-    label: Experiences
-    folder: "src/data/experiences"
+  - name: post
+    label: post
+    folder: content/blog/post
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {
-          label: "Category",
-          name: "category",
-          widget: "hidden",
-          default: "experience",
-        }
-      - {
-          label: "ID",
-          name: "experience_id",
-          widget: "ncw-id",
-          prefix: experience,
-        }
-      - { label: "Company", name: "company" }
-      - { label: "Position", name: "position" }
-      - { label: "Start Date", name: "startDate", widget: "datetime" }
-      - { label: "End Date", name: "endDate", widget: "datetime" }
-      - {
-          label: "Duties and Responsibilities",
-          name: "body",
-          widget: "markdown",
-        }
-  - name: educations
-    label: Educations
-    folder: "src/data/educations"
+      - label: template key
+        name: template-key
+        widget: hidden
+        default: post
+
+      - label: published
+        name: published
+        widget: boolean
+
+      - label: cover
+        name: cover
+        widget: image
+
+      - label: title
+        name: title
+
+      - label: description
+        name: description
+        widget: text
+
+      - label: date
+        name: date
+        widget: date
+
+      - label: tags
+        name: tags
+        widget: list
+
+      - label: body
+        name: body
+        widget: markdown
+
+  - name: experience
+    label: experience
+    folder: content/resume/experience
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {
-          label: "Category",
-          name: "category",
-          widget: "hidden",
-          default: "education",
-        }
-      - {
-          label: "ID",
-          name: "education_id",
-          widget: "ncw-id",
-          prefix: education,
-        }
-      - { label: "University or School", name: "university" }
-      - { label: "Degree", name: "degree" }
-      - { label: "Start Date", name: "startDate", widget: "datetime" }
-      - { label: "End Date", name: "endDate", widget: "datetime" }
-      - { label: "Tasks and Activities", name: "body", widget: "markdown" }
-  - name: "pages"
-    label: "Pages"
+      - label: data key
+        name: data-key
+        widget: hidden
+        default: experience
+
+      - label: company
+        name: company
+
+      - label: position
+        name: position
+
+      - label: start date
+        name: startDate
+        widget: date
+
+      - label: end date
+        name: endDate
+        widget: date
+
+      - label: body
+        name: body
+        widget: markdown
+
+  - name: education
+    label: education
+    folder: content/resume/education
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: data key
+        name: data-key
+        widget: hidden
+        default: education
+
+      - label: university
+        name: university
+
+      - label: degree
+        name: degree
+
+      - label: start date
+        name: startDate
+        widget: date
+
+      - label: end date
+        name: endDate
+        widget: date
+
+      - label: body
+        name: body
+        widget: markdown
+
+  - name: pages
+    label: pages
     files:
-      - file: "src/data/about-page.md"
-        label: "About Page"
-        name: "about-page"
+      - file: content/about/index.md
+        label: about page
+        name: about-page
         fields:
-          [
-            {
-              label: "Category",
-              name: "category",
-              widget: "hidden",
-              default: "about page",
-            },
-            {
-              label: "SEO",
-              name: "SEO",
-              widget: "object",
-              fields: [{ label: "page title", name: "title" }],
-            },
-            {
-              label: "Hero-Banner section",
-              name: "heroBannerSection",
-              widget: "object",
-              fields:
-                [
-                  { label: "Role", name: "role" },
-                  { label: "Greeting", name: "greeting" },
-                  { label: "About me", name: "aboutMe", widget: "text" },
-                ],
-            },
-            {
-              label: "Services section",
-              name: "servicesSection",
-              widget: "object",
-              fields:
-                [
-                  { label: "Title", name: "title" },
-                  { label: "Subtitle", name: "subtitle" },
-                  {
-                    label: "Services",
-                    name: "services",
-                    widget: "list",
-                    fields:
-                      [
-                        { label: "Title", name: "title" },
-                        { label: "Icon", name: "icon" },
-                        {
-                          label: "Description",
-                          name: "description",
-                          widget: "text",
-                        },
-                      ],
-                  },
-                ],
-            },
-          ]
-      - file: "src/data/contacts-page.md"
-        label: "Contact Page"
-        name: "contacts-page"
+          - label: template key
+            name: template-key
+            widget: hidden
+            default: about-page
+
+          - label: SEO
+            name: SEO
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+          - label: hero banner section
+            name: heroBannerSection
+            widget: object
+            fields:
+              - label: role
+                name: role
+
+              - label: greeting
+                name: greeting
+                widget: text
+
+              - label: bio
+                name: bio
+                widget: text
+
+          - label: services section
+            name: servicesSection
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+              - label: subtitle
+                name: subtitle
+
+              - label: services
+                name: services
+                widget: list
+                fields:
+                  - label: title
+                    name: title
+
+                  - label: icon
+                    name: icon
+
+                  - label: description
+                    name: description
+                    widget: text
+
+      - file: content/blog/index.md
+        label: blog page
+        name: blog-page
         fields:
-          [
-            {
-              label: "Category",
-              name: "category",
-              widget: "hidden",
-              default: "contacts page",
-            },
-            {
-              label: "SEO",
-              name: "SEO",
-              widget: "object",
-              fields: [{ label: "page title", name: "title" }],
-            },
-            { label: "Title", name: "title" },
-            { label: "Subtitle", name: "subtitle" },
-            {
-              label: "Contacts",
-              name: "contacts",
-              widget: "list",
-              fields:
-                [
-                  { label: "Title", name: "title" },
-                  { label: "Icon", name: "icon" },
-                  { label: "Content", name: "content" },
-                ],
-            },
-          ]
-      - file: "src/data/resume-page.md"
-        label: "Resume Page"
-        name: "resume-page"
+          - label: template key
+            name: template-key
+            widget: hidden
+            default: blog-page
+
+          - label: SEO
+            name: SEO
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+          - label: title
+            name: title
+
+          - label: subtitle
+            name: subtitle
+
+      - file: content/contact/index.md
+        label: contact page
+        name: contact-page
         fields:
-          [
-            {
-              label: "Category",
-              name: "category",
-              widget: "hidden",
-              default: "resume page",
-            },
-            {
-              label: "SEO",
-              name: "SEO",
-              widget: "object",
-              fields: [{ label: "page title", name: "title" }],
-            },
-            {
-              label: "Experience",
-              name: "experience",
-              widget: "object",
-              fields:
-                [
-                  { label: "Title", name: "title" },
-                  { label: "Subtitle", name: "subtitle" },
-                  {
-                    label: "Experiences",
-                    name: "experiences",
-                    multiple: true,
-                    widget: "relation",
-                    collection: "experiences",
-                    search_fields: [company, position, startDate, endDate],
-                    value_field: "experience_id",
-                    display_fields: [company],
-                  },
-                ],
-            },
-            {
-              label: "Education",
-              name: "education",
-              widget: "object",
-              fields:
-                [
-                  { label: "Title", name: "title" },
-                  { label: "Subtitle", name: "subtitle" },
-                  {
-                    label: "Educations",
-                    name: "educations",
-                    multiple: true,
-                    widget: "relation",
-                    collection: "educations",
-                    search_fields: [
-                        university
-                        degree,
-                        startDate,
-                        endDate,
-                      ],
-                    value_field: "education_id",
-                    display_fields: [university],
-                  },
-                ],
-            },
-          ]
+          - label: template key
+            name: template-key
+            widget: hidden
+            default: contact-page
+
+          - label: title
+            name: title
+
+          - label: subtitle
+            name: subtitle
+
+          - label: SEO
+            name: SEO
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+          - label: contacts
+            name: contacts
+            widget: list
+            fields:
+              - label: title
+                name: title
+
+              - label: icon
+                name: icon
+
+              - label: content
+                name: content
+
+      - file: content/resume/index.md
+        label: resume page
+        name: resume-page
+        fields:
+          - label: template key
+            name: template-key
+            widget: hidden
+            default: resume-page
+
+          - label: SEO
+            name: SEO
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+          - label: experience
+            name: experience
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+              - label: subtitle
+                name: subtitle
+
+              - label: timeline
+                name: timeline
+                widget: hidden
+                default: experience
+
+          - label: education
+            name: education
+            widget: object
+            fields:
+              - label: title
+                name: title
+
+              - label: subtitle
+                name: subtitle
+
+              - label: timeline
+                name: timeline
+                widget: hidden
+                default: education

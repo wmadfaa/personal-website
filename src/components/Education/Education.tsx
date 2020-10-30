@@ -7,16 +7,8 @@ import HTMLContent from '../Base/HTMLContent/HTMLContent';
 import { HTMLContentProps } from '../Base/HTMLContent/HTMLContent';
 import { TitleSectionData } from '../Base/TitleSection/TitleSection';
 
-export interface EducationTimelineData {
-  body: string;
-  university: string;
-  degree: string;
-  endDate: string;
-  startDate: string;
-}
-
 export interface EducationProps extends TitleSectionData {
-  educations: EducationTimelineData[];
+  educations: Array<{ body: string; university: string; degree: string; endDate: string; startDate: string }>;
   contentComponent?: React.ElementType<HTMLContentProps>;
 }
 

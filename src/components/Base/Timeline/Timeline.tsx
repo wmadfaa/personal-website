@@ -1,5 +1,5 @@
 import React from 'react';
-
+import moment from 'moment';
 import styles from './Timeline.module.css';
 
 export interface TimelineProps {
@@ -15,7 +15,8 @@ const Timeline: React.FC<TimelineProps> = ({ title, subtitle, content, startDate
     <span className={styles.point} />
     <div className={styles.details}>
       <div className={styles.date}>
-        {startDate} - {endDate}
+        {moment(startDate).format('MMMM YYYY')} -{' '}
+        {moment(endDate).isValid() ? moment(endDate).format('MMMM YYYY') : endDate}
       </div>
       <div className={styles.title}>{title}</div>
       <div className={styles.subtitle}>{subtitle}</div>

@@ -1,0 +1,31 @@
+body {
+  @apply m-0 text-gray-900 bg-white;
+
+  @screen dark-mode {
+    @apply text-white bg-gray-900;
+  }
+}
+
+a {
+  @apply text-gray-600;
+  &:hover {
+    @apply text-gray-700;
+  }
+
+  @screen dark-mode {
+    @apply text-gray-400;
+    &:hover {
+      @apply text-gray-300;
+    }
+  }
+}
+
+p + p {
+  @apply mt-3;
+}
+
+.line-numbers-rows {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+}

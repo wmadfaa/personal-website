@@ -5,11 +5,11 @@ import Banner from '../Base/Banner/Banner';
 export interface HeroBannerProps {
   role: string;
   greeting: string;
-  aboutMe: string;
+  bio: string;
 }
 
-const HeroBanner: React.FC<HeroBannerProps> = ({ role, greeting, aboutMe }) => {
-  return <Banner title={role} subtitle={greeting} content={aboutMe} linkTo="/resume/" linkText="My Resume" />;
+const HeroBanner: React.FC<HeroBannerProps> = ({ role, greeting, bio }) => {
+  return <Banner title={role} subtitle={greeting} content={bio} linkTo="/resume/" linkText="My Resume" />;
 };
 
 export default HeroBanner;

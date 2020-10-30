@@ -3,7 +3,11 @@
  *
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
-
-// You can delete this file if you're not using it
-import './src/assets/styles/global.css';
+import React from 'react';
+import './src/styles/tailwind.css';
 import 'prism-theme-one-dark/prism-onedark.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import './src/styles/global.css';
+import NotificationProvider from './src/components/Base/Notification/NotificationProvider';
+
+export const wrapRootElement = ({ element }) => <NotificationProvider>{element}</NotificationProvider>;

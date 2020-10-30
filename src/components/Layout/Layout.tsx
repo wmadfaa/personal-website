@@ -7,12 +7,7 @@ import Footer from './Footer/Footer';
 
 import styles from './Layout.module.css';
 
-interface Props {
-  children: React.ReactNode;
-  seo: SeoProps;
-}
-
-const Layout: React.FC<Props> = ({ seo = { title: '' }, children }) => {
+const Layout: React.FC<{ seo: SeoProps }> = ({ seo, children }) => {
   return (
     <>
       <SEO {...seo} />

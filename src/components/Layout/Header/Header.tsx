@@ -1,19 +1,16 @@
 import React from 'react';
-
+import { Link } from 'gatsby';
 import Container from '../../Base/Container/Container';
-
 import MainNav from './Nav/Nav';
-import Logo from './Logo/Logo';
 
 import styles from './Header.module.css';
-import { LogoProps } from './Logo/Logo';
 
-export type HeaderProps = LogoProps;
-
-const Header: React.FC<HeaderProps> = ({ logoTitle }) => (
+const Header: React.FC<{ logoTitle: string }> = ({ logoTitle }) => (
   <header className={styles.header}>
     <Container itemsCenter>
-      <Logo logoTitle={logoTitle} />
+      <Link className={styles.logo} to="/">
+        <h1 className={styles.ownerName}>{logoTitle}</h1>
+      </Link>
       <MainNav />
     </Container>
   </header>

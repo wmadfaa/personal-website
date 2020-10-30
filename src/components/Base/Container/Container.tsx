@@ -6,7 +6,6 @@ import classnames from 'classnames';
 interface Props {
   itemsCenter?: boolean;
   section?: boolean;
-  children: React.ReactNode;
 }
 
 const Container: React.FC<Props> = ({ itemsCenter, section, children }) => (

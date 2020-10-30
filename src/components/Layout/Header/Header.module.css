@@ -5,3 +5,23 @@
     @apply bg-gray-800 border-gray-700;
   }
 }
+
+.logo {
+  @apply flex items-center mr-auto text-gray-700;
+
+  &:hover {
+    @apply text-gray-800;
+  }
+
+  @screen dark-mode {
+    @apply text-gray-300;
+
+    &:hover {
+      @apply text-gray-200;
+    }
+  }
+}
+
+.owner-name {
+  @apply text-lg font-semibold;
+}

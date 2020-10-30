@@ -1,0 +1,31 @@
+.root {
+  @apply flex flex-col w-full h-full;
+}
+
+.label {
+  @apply block mb-2 text-xs font-bold tracking-wide text-gray-900 uppercase;
+
+  @screen dark-mode {
+    @apply text-gray-100;
+  }
+}
+
+.input {
+  @apply block w-full h-full px-4 py-3 mb-3 overflow-auto leading-tight text-gray-800 bg-gray-100 border border-gray-300 rounded appearance-none resize-none;
+
+  @screen dark-mode {
+    @apply text-gray-200 bg-gray-900 border-gray-700;
+  }
+
+  &:focus {
+    @apply outline-none bg-white border-gray-900;
+
+    @screen dark-mode {
+      @apply bg-gray-900 border-gray-100;
+    }
+  }
+}
+
+.err-msg {
+  @apply text-xs italic text-red-600;
+}

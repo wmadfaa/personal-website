@@ -7,16 +7,10 @@ import { IconProps } from '../Base/Icon/Icon';
 
 import styles from './ContactsInfo.module.css';
 
-interface ContactInfoProps {
-  title: string;
-  content: string;
-  icon: IconProps;
-}
-
 export interface ContactsProps {
   title: string;
   subtitle: string;
-  contacts: ContactInfoProps[];
+  contacts: Array<{ title: string; content: string; icon: IconProps | string }>;
 }
 
 const ContactsInfo: React.FC<ContactsProps> = ({ title, subtitle, contacts }) => {
@@ -25,7 +19,7 @@ const ContactsInfo: React.FC<ContactsProps> = ({ title, subtitle, contacts }) =>
       <TitleSection title={title} subtitle={subtitle} center />
       <div className={styles.contactInfos}>
         {contacts.map(({ icon, title, content }, index) => (
-          <InfoBlock key={index} icon={icon} title={title} content={content} center />
+          <InfoBlock key={index} icon={icon as IconProps} title={title} content={content} center />
         ))}
       </div>
     </Container>

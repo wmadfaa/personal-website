@@ -1,14 +1,14 @@
 import React from 'react';
-
-import ContactsPageTemplate from '../templates/contacts-page';
-import { useContactsPageStaticQuery } from '../templates/contacts-page';
 import Layout from '../components/Layout/Layout';
+import ContactsPageTemplate from '../templates/contacts-page';
+import { useContactPageQuery } from '../graphql/contact-page';
 
 const ContactPage: React.FC = () => {
-  const { SEO, ...contactsPageProps } = useContactsPageStaticQuery();
+  const { markdownRemark } = useContactPageQuery();
+  const { SEO, title, subtitle, contacts } = markdownRemark.frontmatter;
   return (
     <Layout seo={SEO}>
-      <ContactsPageTemplate {...contactsPageProps} />
+      <ContactsPageTemplate title={title} subtitle={subtitle} contacts={contacts} />
     </Layout>
   );
 };
