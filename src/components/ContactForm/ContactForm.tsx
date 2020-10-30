@@ -21,6 +21,7 @@ interface ContactFormInputs {
   phone: string;
   message: string;
   service: string;
+  'bot-field': string;
 }
 
 const encode = (data: ContactFormInputs & { 'form-name': string }) => {
@@ -31,33 +32,51 @@ const encode = (data: ContactFormInputs & { 'form-name': string }) => {
 
 const ContactForm: React.FC<ContactFormProps> = ({ title, subtitle }) => {
   const notify = useNotification();
-  const { register, handleSubmit, errors, control } = useForm<ContactFormInputs>();
+  const { register, handleSubmit, errors, control, setValue } = useForm<ContactFormInputs>();
 
-  const handleOnSubmit = (data: ContactFormInputs) => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...data }),
-    })
-      .then(() => {
-        notify(
-          {
-            status: 'success',
-            title: 'Your request has been received',
-            message: 'I will respond to you as soon as possible.',
-          },
-          3000,
-        );
+  const handleOnSubmit = (data: ContactFormInputs, evt?: React.BaseSyntheticEvent) => {
+    if (evt) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': evt.target.getAttribute('name'), ...data }),
       })
-      .catch(() => {
-        notify({ status: 'error', title: 'Ops! something went wrong', message: 'please try again' }, 3000);
-      });
+        .then(() => {
+          notify(
+            {
+              status: 'success',
+              title: 'Your request has been received',
+              message: 'I will respond to you as soon as possible.',
+            },
+            3000,
+          );
+        })
+        .catch(() => {
+          notify({ status: 'error', title: 'Ops! something went wrong', message: 'please try again' }, 3000);
+        });
+    }
   };
 
   return (
     <Container>
       <TitleSection title={title} subtitle={subtitle} center />
-      <form className={styles.form} onSubmit={handleSubmit(handleOnSubmit)} data-netlify="true">
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(handleOnSubmit)}
+        name="contact"
+        method="post"
+        action="/contact/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+        <input type="hidden" name="form-name" value="contact" />
+        <div hidden>
+          <label>
+            Don’t fill this out:{' '}
+            <input name="bot-field" onChange={(evt) => setValue(evt.target.name, evt.target.value)} />
+          </label>
+        </div>
         <div className={styles.msgGroup}>
           <div className={styles.msgInfos}>
             <TextInput
