@@ -57,7 +57,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ title, subtitle }) => {
   return (
     <Container>
       <TitleSection title={title} subtitle={subtitle} center />
-      <form className={styles.form} onSubmit={handleSubmit(handleOnSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(handleOnSubmit)} data-netlify="true">
         <div className={styles.msgGroup}>
           <div className={styles.msgInfos}>
             <TextInput
